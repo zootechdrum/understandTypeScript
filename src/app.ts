@@ -4,6 +4,12 @@ class ProjectInput {
     //Host Element will be the div that will host the rendered version of our app
     hostElement: HTMLDivElement;
     element: HTMLFormElement;
+    titleInputElement: HTMLInputElement;
+    descriptionInputElement: HTMLInputElement;
+    peopleInputElement: HTMLInputElement;
+
+
+
 
     constructor() {
         //Grabs the template element that we want to render
@@ -14,8 +20,16 @@ class ProjectInput {
 
         const importedNode = document.importNode(this.templateElement.content, true);
         this.element = importedNode.firstElementChild as HTMLFormElement;
-        this.element.id = 'user-input'
-        this.attach()
+        this.element.id = 'user-input';
+
+
+        this.titleInputElement = this.element.querySelector('#title') as HTMLInputElement;
+        this.descriptionInputElement = this.element.querySelector('#description') as HTMLInputElement;
+        this.peopleInputElement = this.element.querySelector('#people') as HTMLInputElement;
+
+
+
+        this.attach();
 
 
     }
