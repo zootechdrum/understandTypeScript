@@ -1,3 +1,13 @@
+//autobind decorator
+function hellow(arg1){
+    return function w(arg2){
+        console.log(arg1 + arg2)
+    }
+}
+
+hellow()
+
+
 class ProjectInput {
 // Template Element is declared as an HTML element
     templateElement: HTMLTemplateElement;
@@ -27,11 +37,17 @@ class ProjectInput {
         this.descriptionInputElement = this.element.querySelector('#description') as HTMLInputElement;
         this.peopleInputElement = this.element.querySelector('#people') as HTMLInputElement;
 
-
-
+        this.configure();
         this.attach();
+    }
 
+    private submitHandler(event: Event){
+        event.preventDefault();
+        console.log(this.titleInputElement.value)
+    }
 
+    private configure() {
+        this.element.addEventListener('submit', this.submitHandler.bind(this))
     }
 
     private attach() {
