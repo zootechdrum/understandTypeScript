@@ -1,12 +1,19 @@
-//autobind decorator
-function hellow(arg1){
-    return function w(arg2){
-        console.log(arg1 + arg2)
+//autobind decorater
+
+function autobind(target: any, mehtodName: string, descriptor: PropertyDescriptor) {
+
+    const originalMethod = descriptor.value;
+    const adjDescriptor: PropertyDescriptor = {
+        configurable: true,
+
+        get() {
+            const boundFn = originalMethod.bind(this)
+            return boundFn;
+        }
     }
 }
 
-hellow()
-
+//ProjectInput Class
 
 class ProjectInput {
 // Template Element is declared as an HTML element
@@ -41,6 +48,7 @@ class ProjectInput {
         this.attach();
     }
 
+    @autobind
     private submitHandler(event: Event){
         event.preventDefault();
         console.log(this.titleInputElement.value)

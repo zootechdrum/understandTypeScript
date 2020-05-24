@@ -1,3 +1,11 @@
+//autobind decorator
+function hellow(arg1) {
+    return function w(arg2) {
+        console.log(arg1 + " Hello");
+    };
+}
+var h = hellow("r");
+console.log(h("d"));
 var ProjectInput = /** @class */ (function () {
     function ProjectInput() {
         //Grabs the template element that we want to render
