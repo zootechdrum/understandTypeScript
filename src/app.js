@@ -5,7 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 // autobind decorator
-var autobind = function (_, _2, descriptor) {
+function autobind(_, _2, descriptor) {
     var originalMethod = descriptor.value;
     var adjDescriptor = {
         configurable: true,
@@ -15,7 +15,7 @@ var autobind = function (_, _2, descriptor) {
         }
     };
     return adjDescriptor;
-};
+}
 // ProjectInput Class
 var ProjectInput = /** @class */ (function () {
     function ProjectInput() {
