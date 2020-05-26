@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 // autobind decorator
 function autobind(_, _2, descriptor) {
     var originalMethod = descriptor.value;
+    console.log(descriptor);
     var adjDescriptor = {
         configurable: true,
         get: function () {
@@ -45,4 +46,5 @@ var ProjectInput = /** @class */ (function () {
     ], ProjectInput.prototype, "submitHandler");
     return ProjectInput;
 }());
+console.log("Hello");
 var prjInput = new ProjectInput();

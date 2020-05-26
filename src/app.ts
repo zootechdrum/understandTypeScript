@@ -2,9 +2,9 @@
 function autobind(
   _: any,
   _2: string,
-  descriptor: PropertyDescriptor
+  descriptor: TypedPropertyDescriptor<any>
 ) {
-  const originalMethod = descriptor.value;
+  const originalMethod = descriptor.value
   const adjDescriptor: PropertyDescriptor = {
     configurable: true,
     get() {
